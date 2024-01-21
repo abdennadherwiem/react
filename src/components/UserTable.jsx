@@ -20,6 +20,7 @@ import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
 
 import SearchIcon from '@material-ui/icons/Search';
+import adminAuth from '../utils/adminAuth';
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
@@ -158,6 +159,6 @@ const UserTable = () => {
   );
 };
 
-export default UserTable;
+export default adminAuth(UserTable);
 
 

@@ -42,9 +42,13 @@ const LoginForm = () => {
 
     try {
       const response = await axios.post('http://localhost:8080/user/login', formData);
-      const token = response.data;
+      console.log(response.data.token)
+      const token = response.data.token;
+      const userType=response.data.userType;
       localStorage.setItem('token', token);
-      navigate('/usertable');
+      localStorage.setItem('userType', userType);
+
+      navigate('/');
     } catch (error) {
       console.error('Login failed:', error.response ? error.response.data : error.message);
 

@@ -1,0 +1,20 @@
+/* HomePage.css */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #007bff; /* Set your desired background color */
+  }
+  
+  h1 {
+    color: #ffffff; /* Set your desired text color */
+  }
+  
+  p {
+    color: #ffffff; /* Set your desired text color */
+  }
+  

@@ -17,6 +17,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
+import userAuth from '../utils/userAuth';
 
 const ProductsTable = () => {
   const [products, setProducts] = useState([]);
@@ -26,18 +27,13 @@ const ProductsTable = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const authToken = localStorage.getItem('authToken');
-    if (authToken!= null) {
-      // Redirect to login if authToken is not present
-      navigate('/pp');
-    } else {
+  useEffect(() => {   
       // Fetch products from your API only if authToken is present
       fetch('http://localhost:8080/products/')
         .then((response) => response.json())
         .then((data) => setProducts(data))
         .catch((error) => console.error('Error fetching products:', error));
-    }
+    
   }, [navigate]);
 
   useEffect(() => {
@@ -172,4 +168,4 @@ const ProductsTable = () => {
   );
 };
 
-export default ProductsTable;
+export default userAuth(ProductsTable);
