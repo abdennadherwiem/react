@@ -9,6 +9,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -42,9 +43,9 @@ const AddTitleForm = () => {
 
     try {
       // Envoi de la requête au backend
-      await axios.post('http://localhost:8080/titles/add', titleName, {
+      await axios.post('http://localhost:8080/titles/add', { name: titleName }, {
         headers: {
-          'Content-Type': 'text/plain',
+          'Content-Type': 'application/json',
         },
       });
 
@@ -52,7 +53,7 @@ const AddTitleForm = () => {
       setTitleName('');
 
       alert('Titre ajouté avec succès!');
-      navigate('/TitleTable')
+      navigate('/usertable')
     } catch (error) {
       console.error('Erreur lors de l\'ajout du titre', error);
       alert('Erreur lors de l\'ajout du titre. Veuillez réessayer.');
@@ -61,9 +62,10 @@ const AddTitleForm = () => {
 
   return (
     <Container component="main" maxWidth="xs">
+      <Navbar />
       <Paper className={classes.paper} elevation={3}>
-        <Typography component="h1" variant="h5">
-           marque
+        <Typography style={{ color: 'black' }} component="h1" variant="h5">
+          Modéle
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
           <TextField
@@ -72,7 +74,7 @@ const AddTitleForm = () => {
             required
             fullWidth
             id="title"
-            label="marque"
+            label="modéle"
             name="title"
             value={titleName}
             onChange={handleInputChange}
@@ -84,7 +86,7 @@ const AddTitleForm = () => {
             color="primary"
             className={classes.submit}
           >
-            Enregistrer marque
+            Enregistrer Modéle
           </Button>
         </form>
       </Paper>

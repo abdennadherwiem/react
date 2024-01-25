@@ -3,6 +3,7 @@ import { Button, TextField, Typography, Paper, Container } from '@material-ui/co
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -38,9 +39,10 @@ const AddColorForm = () => {
           'Content-Type': 'text/plain',
         },
       });
-
+      
       // Marquer l'ajout comme réussi
       setIsColorAdded(true);
+      navigate('/usertable');
     } catch (error) {
       console.error('Erreur lors de l\'ajout de la couleur:', error);
     }
@@ -48,13 +50,14 @@ const AddColorForm = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <Paper className={classes.paper} elevation={3}>
-        <Typography component="h1" variant="h5">
+      <Navbar />
+      <Paper className={classes.paper} elevation={3} style={{ marginLeft: '20px' }}>
+        <Typography component="h1" variant="h5" style={{ color: 'black' }}>
           {isColorAdded ? 'Color Added' : 'Add Color'}
         </Typography>
         {isColorAdded ? (
-          <Typography variant="body1" color="textSecondary">
-            Color: {colorName}
+          <Typography style={{ color: 'black' }} variant="body1" color="textSecondary">
+            Color :{colorName}
           </Typography>
         ) : (
           <form className={classes.form} onSubmit={handleSubmit}>

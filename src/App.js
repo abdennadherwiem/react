@@ -15,11 +15,16 @@ import AddModelForm from './components/AddModelForm';
 import ModelTable from './components/ModelTable';
 import AccessDeniedPage from './components/AccessDeniedPage';
 import Home from './components/home';
+import Dashboard from './components/Dashboard';
+import ColorList from './components/ColorList';
+
+//import OtherNavbar from './components/OtherNavbar';
 const App = () => {
   
 
   return (
     <Router>
+      
       <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/pp" element={<ProductsTable />} />
@@ -35,7 +40,9 @@ const App = () => {
             <Route path="/AddColorForm" element={<AddColorForm />} />
             <Route path="/AddModelForm" element={<AddModelForm />} />
             <Route path="/ModelTable" element={<ModelTable />} />
+            <Route path="/ColorList" element={<ColorList />} />
             <Route path="/AccessDeniedPage" element={<AccessDeniedPage />}/>
+            <Route path="/Dashboard" element={<Dashboard />}/>
       </Routes>
     </Router>
   );

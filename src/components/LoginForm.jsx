@@ -45,10 +45,16 @@ const LoginForm = () => {
       console.log(response.data.token)
       const token = response.data.token;
       const userType=response.data.userType;
+      //const name=response.data.name;
       localStorage.setItem('token', token);
       localStorage.setItem('userType', userType);
-
-      navigate('/');
+      //localStorage.setItem('name',name)
+  
+      if (token && userType) {
+        navigate('/usertable');
+      }else{
+        navigate("/")
+      }
     } catch (error) {
       console.error('Login failed:', error.response ? error.response.data : error.message);
 
@@ -63,7 +69,7 @@ const LoginForm = () => {
   return (
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style={{color:'black'}}>
           Login
         </Typography>
         <form className={classes.form} onSubmit={handleLogin}>

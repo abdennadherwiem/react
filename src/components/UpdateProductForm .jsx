@@ -111,8 +111,8 @@ const UpdateProductForm = () => {
               onChange={handleInputChange}
             >
               {titles.map((title) => (
-                <MenuItem key={title} value={title}>
-                  {title}
+                <MenuItem key={title} value={title.name}>
+                  {title.name}
                 </MenuItem>
               ))}
             </Select>

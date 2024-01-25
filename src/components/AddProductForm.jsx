@@ -12,6 +12,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -89,9 +90,11 @@ const AddProductForm = () => {
   };
 
   return (
+    
     <Container component="main" maxWidth="xs">
+      <Navbar />
       <Paper className={classes.paper} elevation={3}>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style={{color:'black'}}>
           Ajouter car
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
@@ -107,8 +110,8 @@ const AddProductForm = () => {
             onChange={handleInputChange}
           >
             {titleList.map((title) => (
-              <MenuItem key={title} value={title}>
-                {title}
+              <MenuItem key={title.id} value={title.name}>
+                {title.name}
               </MenuItem>
             ))}
           </Select>

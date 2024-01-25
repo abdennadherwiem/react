@@ -52,11 +52,11 @@ const AddModelForm = () => {
   return (
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style={{ color: 'black' }}>
           {isModelAdded ? 'Model Added' : 'Add Model'}
         </Typography>
         {isModelAdded ? (
-          <Typography variant="body1" color="textSecondary">
+          <Typography  style={{ color: 'black' }} variant="body1" color="textSecondary">
             Model: {modelName}
           </Typography>
         ) : (

@@ -40,10 +40,10 @@ const TitleTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {titles.map((title) => (
-              <TableRow key={title}>
-                <TableCell>{title}</TableCell>
-                <TableCell>{title}</TableCell>
+            {titles.map((title,index) => (
+              <TableRow key={index}>
+                <TableCell>{index+1}</TableCell>
+                <TableCell>{title.name}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -54,13 +54,5 @@ const TitleTable = () => {
 };
 
 export default TitleTable;
-
-
-
-
-
-
-
-
 
 

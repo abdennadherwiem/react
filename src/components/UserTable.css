@@ -1,0 +1,39 @@
+/* UserTable.css */
+.dashboard-container {
+    display: flex;
+  }
+  
+  .main-container {
+    flex: 1;
+    padding: 10px;
+    margin-left: 220px;
+    margin-top: -12px; /* Ajustez la marge selon vos préférences */
+  }
+
+  
+  /* UserTable.css */
+.dashboard-container {
+    display: flex;
+  }
+  
+  .main-container {
+    flex: 1;
+    padding: 25px;
+  }
+  
+  .search-bar-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid rgb(235, 235, 209);
+    border-radius: 6px;
+    padding: 3px;
+    margin-bottom: -20px;
+  }
+  
+  .search-bar-container > * {
+    margin-right: 10px;
+    margin-bottom: -20px;
+  }
+  
+  /* Add other styles as needed */
+  
